@@ -1,0 +1,61 @@
+* {
+  font-family: "iA Writer Quattro V", system-ui, sans-serif;
+  /*  "Noto Emoji", */
+}
+
+/* checkbox shadow + light gray background*/
+.doneCheckbox input[type="checkbox"]:checked:focus {
+  background-color: var(--colorGray500);
+  background-position: top;
+}
+
+.doneCheckbox input[type="checkbox"]:focus {
+  background-position: top;
+}
+
+.doneCheckbox input[type="checkbox"]:checked {
+  background-color: var(--colorGray500);
+  background-position: top;
+}
+
+/* 100% width content */
+div[class^="Panel"].panelWidthLarge .contentFromTemplate > div {
+  width: 100%;
+}
+
+/* FIELDS */
+/* Remove fields' separators */
+/* .bulletAndContent.istuple { */
+/* box-shadow: none; */
+/* } */
+/* Remove separator between fields and nodes - DISABLED, enable if you want */
+/* .bulletAndContent.istuple + .bulletAndContent.istuple { */
+/* box-shadow: none; */
+/* } */
+/* TOPBAR */
+/* Dim Tana Early access logo and Search Icon */
+.TopBar-module_topBar__a-A3U {
+  color: var(--colorGray525);
+}
+
+/* Dim TopBar's search bar background */
+.TopBar-module_topBar__a-A3U
+  .TopBar-module_searchBarContainer__3AxR8
+  .TopBar-module_searchBar__vLIGY {
+  background-color: var(--colorGray850);
+}
+
+/* Remove TopBar's bottom line (default = 1px) */
+.EditorPage-module_el__9-h9C {
+  gap: 0px;
+}
+
+/* Remove Top-bar borders */
+header {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+header > div,
+header div[class^="TopBar-module_separator"] {
+  border-left: none !important;
+}
