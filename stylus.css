@@ -1,61 +1,69 @@
-* {
+html {
   font-family: "iA Writer Quattro V", system-ui, sans-serif;
-  /*  "Noto Emoji", */
+  -webkit-font-smoothing: subpixel-antialiased;
+  --baseFontSize: 0.9rem;
+  --checkboxBorderRadius: 3.75px;
 }
 
-/* checkbox shadow + light gray background*/
-.doneCheckbox input[type="checkbox"]:checked:focus {
-  background-color: var(--colorGray500);
+.checkWrap {
+  margin-left: 1.5px;
+}
+
+/* MAKE ALL BULLET GAPS THE SAME */
+[class*="OutlinerItem-module_children"] {
+  padding-bottom: 0px;
+}
+
+/* SCOOT TODO BOXES OVER TO THE LEFT TO REPLACE THE BULLET FOR TASKS */
+[class*="OutlinerItem-module_content"] .doneCheckboxLabel {
+  margin-left: -1.5rem !important;
+  padding-right: 0.125rem !important;
+  transform: scale(1.025) !important;
+  transform: translateY(-0.25px) !important;
+}
+
+.doneCheckboxLabel input[type="checkbox"] {
   background-position: top;
+  border-radius: var(--checkboxBorderRadius);
 }
 
-.doneCheckbox input[type="checkbox"]:focus {
-  background-position: top;
+.doneCheckboxLabel input[type="checkbox"]:checked {
+  background-color: var(--colorGreen500);
 }
 
-.doneCheckbox input[type="checkbox"]:checked {
-  background-color: var(--colorGray500);
-  background-position: top;
+.doneCheckboxLabel input[type="checkbox"]:focus:before {
+  border: 1.75px solid var(--colorGreen600);
+  border-radius: calc(var(--checkboxBorderRadius) + 1px);
 }
 
-/* 100% width content */
-div[class^="Panel"].panelWidthLarge .contentFromTemplate > div {
-  width: 100%;
+div[data-tag-name="journal"] b {
+  font-weight: normal;
+  color: #84caff;
+  opacity: 0.75;
 }
 
-/* FIELDS */
-/* Remove fields' separators */
-/* .bulletAndContent.istuple { */
-/* box-shadow: none; */
-/* } */
-/* Remove separator between fields and nodes - DISABLED, enable if you want */
-/* .bulletAndContent.istuple + .bulletAndContent.istuple { */
-/* box-shadow: none; */
-/* } */
-/* TOPBAR */
-/* Dim Tana Early access logo and Search Icon */
-.TopBar-module_topBar__a-A3U {
-  color: var(--colorGray525);
+div[data-tag-name="journal"] b:after {
+  content: " | ";
 }
 
-/* Dim TopBar's search bar background */
-.TopBar-module_topBar__a-A3U
-  .TopBar-module_searchBarContainer__3AxR8
-  .TopBar-module_searchBar__vLIGY {
-  background-color: var(--colorGray850);
+.editable .disappearingCaret {
+  width: 0;
 }
 
-/* Remove TopBar's bottom line (default = 1px) */
-.EditorPage-module_el__9-h9C {
-  gap: 0px;
+.inlinerefnode {
+  /* top | left and right | bottom */
+  padding: 0px 3px 3px;
+  margin: 0 -3px;
 }
 
-/* Remove Top-bar borders */
-header {
-  border-top: none !important;
-  box-shadow: none !important;
+a[href ^= http]:not(.hide-external-link-icon):after,
+a[href ^= "https://"]:not(.hide-external-link-icon):after
+{
+  margin-left: -1px;
+  margin-right: 0.35em;
 }
-header > div,
-header div[class^="TopBar-module_separator"] {
-  border-left: none !important;
+
+/* SHRINK COMMAND BUTTON PADDING FOR COMMANDS WITH ICONS TO MATCH SIZE OF COMMANDS WITH TEXT ONLY */
+[class*="Button-module_buttonGroup"] [class*="ObjectAvatar-module_inherit"] {
+  margin: -1px !important;
 }
